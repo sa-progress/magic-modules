@@ -470,6 +470,15 @@ objects:
               - !ruby/object:Api::Type::Boolean
                 name: 'disabled'
                 description: Whether NetworkPolicy is enabled for this cluster.
+          - !ruby/object:Api::Type::NestedObject
+            name: 'gcePersistentDiskCsiDriverConfig'
+            description: |
+              Configuration for enable the automatic deployment and management of
+              the persistent disk driver without having to manually set it up.
+            properties:
+              - !ruby/object:Api::Type::Boolean
+                name: 'enabled'
+                description: Whether NetworkPolicy is enabled for this cluster.
       - !ruby/object:Api::Type::String
         name: 'subnetwork'
         description: |
