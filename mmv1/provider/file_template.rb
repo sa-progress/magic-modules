@@ -61,12 +61,14 @@ module Provider
       ctx.local_variable_set('pwd', pwd)
 
       Google::LOGGER.debug "Generating #{path}"
+      path = pwd + '/' +path
       File.open(path, 'w') { |f| f.puts compile_file(ctx, pwd + '/' + template) }
 
       # Files are often generated in parallel.
       # We can use thread-local variables to ensure that autogen checking
       # stays specific to the file each thred represents.
       raise "#{path} missing autogen" unless Thread.current[:autogen]
+
 
       old_file_chmod_mode = File.stat(pwd + '/' + template).mode
       FileUtils.chmod(old_file_chmod_mode, path)
