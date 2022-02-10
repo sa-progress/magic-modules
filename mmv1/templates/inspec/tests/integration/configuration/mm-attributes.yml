@@ -485,3 +485,10 @@ region_operation:
   operation_type: "compute.instanceGroupManagers.insert"
   status: DONE
   progress: 100
+
+sql_database_flag:
+  name : audit_log
+  type : STRING
+  applies_to: MYSQL_5_6
+  allowed_string_values: ON
+  requires_restart: true
