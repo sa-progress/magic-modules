@@ -172,8 +172,8 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'name'
         description: |
-            Name of the Cloud SQL instance. This does not include the project
-            ID.
+          Name of the Cloud SQL instance. This does not include the project
+          ID.
         required: true
       # TODO(alexstephen): Investigate if worth to make this depend on compute's
       # region as a resource reference. (low priority, non launch blocker)
@@ -349,8 +349,8 @@ objects:
               - !ruby/object:Api::Type::Boolean
                 name: 'requireSsl'
                 description: |
-                    Whether the mysqld should default to 'REQUIRE X509' for
-                    users connecting over IP.
+                  Whether the mysqld should default to 'REQUIRE X509' for
+                  users connecting over IP.
           - !ruby/object:Api::Type::String
             name: 'tier'
             description: |
@@ -364,8 +364,8 @@ objects:
               The availabilityType define if your postgres instance is run zonal
               or regional.
             values:
-            - :ZONAL
-            - :REGIONAL
+              - :ZONAL
+              - :REGIONAL
           - !ruby/object:Api::Type::NestedObject
             name: 'backupConfiguration'
             description: |
@@ -693,7 +693,7 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'name'
         description: |
-            The name of the source representation instance. Use any valid Cloud SQL instance name.
+          The name of the source representation instance. Use any valid Cloud SQL instance name.
         required: true
       - !ruby/object:Api::Type::String
         name: 'region'

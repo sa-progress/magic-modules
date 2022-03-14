@@ -486,6 +486,13 @@ region_operation:
   status: DONE
   progress: 100
 
+sql_database_flag:
+  name : audit_log
+  type : STRING
+  applies_to: MYSQL_5_6
+  allowed_string_values: ON
+  requires_restart: true
+  
 sql_connect:
   region: us-central1
   database_version: POSTGRES_13
@@ -499,3 +506,5 @@ sql_operation:
   name: e5c522f1-8391-4830-a8ff-ff1cc4a7b2a5
   status: DONE
   operation_type: CREATE
+public_delegated_prefix:
+  name: test

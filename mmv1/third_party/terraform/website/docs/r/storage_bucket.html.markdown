@@ -74,7 +74,7 @@ The following arguments are supported:
     boolean option will delete all contained objects. If you try to delete a
     bucket that contains objects, Terraform will fail that run.
 
-* `location` - (Optional, Default: 'US') The [GCS location](https://cloud.google.com/storage/docs/bucket-locations)
+* `location` - (Required) The [GCS location](https://cloud.google.com/storage/docs/bucket-locations)
 
 * `project` - (Optional) The ID of the project in which the resource belongs. If it
     is not provided, the provider project is used.
@@ -89,6 +89,8 @@ The following arguments are supported:
 
 * `cors` - (Optional) The bucket's [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) configuration. Multiple blocks of this type are permitted. Structure is [documented below](#nested_cors).
 
+* `default_event_based_hold` - (Optional) Whether or not to automatically apply an eventBasedHold to new objects added to the bucket.
+
 * `retention_policy` - (Optional) Configuration of the bucket's data retention policy for how long objects in the bucket should be retained. Structure is [documented below](#nested_retention_policy).
 
 * `labels` - (Optional) A map of key/value label pairs to assign to the bucket.
@@ -98,8 +100,6 @@ The following arguments are supported:
 * `encryption` - (Optional) The bucket's encryption configuration. Structure is [documented below](#nested_encryption).
 
 * `requester_pays` - (Optional, Default: false) Enables [Requester Pays](https://cloud.google.com/storage/docs/requester-pays) on a storage bucket.
-
-* `bucket_policy_only` - (Deprecated, Default: false) Enables [Bucket Policy Only](https://cloud.google.com/storage/docs/bucket-policy-only) access to a bucket. This field will be removed in the next major release of the provider.
 
 * `uniform_bucket_level_access` - (Optional, Default: false) Enables [Uniform bucket-level access](https://cloud.google.com/storage/docs/uniform-bucket-level-access) access to a bucket.
 
@@ -195,6 +195,15 @@ exported:
 * `self_link` - The URI of the created resource.
 
 * `url` - The base URL of the bucket, in the format `gs://<bucket-name>`.
+
+## Timeouts
+
+This resource provides the following
+[Timeouts](/docs/configuration/resources.html#timeouts) configuration options:
+
+- `create` - Default is 4 minutes.
+- `update` - Default is 4 minutes.
+- `read` - Default is 4 minutes.
 
 ## Import
 
